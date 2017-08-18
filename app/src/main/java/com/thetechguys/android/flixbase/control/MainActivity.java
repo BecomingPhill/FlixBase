@@ -25,7 +25,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "c083761ec20e935b4194ae78e884e62e";
+    private final static String API_KEY = "add your key";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List MovieData = new ArrayList<>();
@@ -42,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.setDebug(true);
         ButterKnife.bind(this);
+
         final int numCol = 2;
 
        mLayoutManager = new GridLayoutManager(this, numCol);
 
+
+
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
 
 
 
@@ -73,10 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 MovieData.clear();
                 MovieData.add(movies);
                 mAdapter = new MovieAdapter(MovieData);
+                Log.d(TAG, "Adapter has " + mAdapter.getItemCount() + " array with stuff in it" );
 
 
 
-                mRecyclerView.setAdapter(mAdapter);
+
+                mAdapter.notifyDataSetChanged();
 
 
 
