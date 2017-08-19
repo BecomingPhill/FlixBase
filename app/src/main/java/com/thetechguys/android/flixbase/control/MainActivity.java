@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -58,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MovieAdapter(MovieData);
         mRecyclerView.setAdapter(mAdapter);
 
-        mRecyclerView.setVisibility(View.INVISIBLE);
-        mProgressBar.setVisibility(View.VISIBLE);
+
 
 
         if (API_KEY.isEmpty()) {
