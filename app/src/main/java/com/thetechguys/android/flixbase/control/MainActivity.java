@@ -31,7 +31,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "c083761ec20e935b4194ae78e884e62es";
+    private final static String API_KEY = "Damn";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
