@@ -19,7 +19,9 @@ import com.thetechguys.android.flixbase.utilities.ApiInterface;
 import com.thetechguys.android.flixbase.view.MovieAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,10 +31,12 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "KEYS FOR THE DOORS!";
+    private final static String API_KEY = "2Chaaaaaaaaaiiiins";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
+    private Map<String, String> map = new HashMap<>();
+
 
 
     RecyclerView.LayoutManager mLayoutManager;
@@ -65,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        callPopularRated();
+
+
+        map.put("popular", API_KEY);
+        callMovieData(map);
 
 
 
@@ -87,15 +94,17 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_sort_high) {
-          callTopRated();
+            map.clear();
+            map.put("top_rated", API_KEY);
+            callMovieData(map);
             return true;
         }
         else if(id == R.id.action_sort_pop){
-
-           callPopularRated();
+            map.clear();
+            map.put("popular", API_KEY);
+            callMovieData(map);
             return true;
             }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -105,14 +114,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void callTopRated(){
+    public void callMovieData(Map<String,String> map1){
         //Create Interface
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-
         //Attach call to interface
-        Call<MovieResponse> call = apiService.getTopRatedMovies(API_KEY);
+
+        Call<MovieResponse> call = apiService.getMoviesData(map1);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
@@ -123,42 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     List<MovieData> Response = response.body().getResults();
                     Log.d(TAG, "Number of movies received: " + Response.size());
                     updateData(Response);
-
-
                 }
-
-            }
-
-            @Override
-            public void onFailure(Call<MovieResponse> call, Throwable t) {
-                // Log error here since request failed
-                Log.e(TAG, t.toString());
-            }
-        });
-
-    }
-    public void callPopularRated(){
-        //Create Interface
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
-
-
-        //Attach call to interface
-        Call<MovieResponse> call = apiService.getPopulardMovies(API_KEY);
-        call.enqueue(new Callback<MovieResponse>() {
-            @Override
-            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-
-
-                if(response != null){
-                    //Log.d(TAG, "There is something in " + response);
-                    List<MovieData> Response = response.body().getResults();
-                    Log.d(TAG, "Number of movies received: " + Response.size());
-                    updateData(Response);
-
-
-                }
-
             }
 
             @Override
