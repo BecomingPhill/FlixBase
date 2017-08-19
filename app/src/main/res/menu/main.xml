@@ -3,15 +3,15 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
     <item
-        android:id="@+id/action_refresh"
+        android:id="@+id/action_sort_pop"
         android:orderInCategory="1"
         android:title="@string/sort_popular"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="collapseActionView"/>
 
     <item
-        android:id="@+id/action_open_map"
+        android:id="@+id/action_sort_high"
         android:orderInCategory="2"
         android:title="@string/sort_highest_rated"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="collapseActionView"/>
 
 </menu>

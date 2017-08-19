@@ -2,4 +2,5 @@
     <string name="app_name">FlixBase</string>
     <string name="sort_popular">Sort movies by most popular</string>
     <string name="sort_highest_rated">Sprt movies by highest rated</string>
+    <string name="main_poster">Main Activity grid item poster image</string>
 </resources>
