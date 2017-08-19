@@ -1,7 +1,5 @@
 package com.thetechguys.android.flixbase.model;
 
-import android.graphics.Movie;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -14,7 +12,7 @@ public class MovieResponse {
     @SerializedName("page")
     private int page;
     @SerializedName("results")
-    private List<Movie> results;
+    private List<MovieData> results;
     @SerializedName("total_results")
     private int totalResults;
     @SerializedName("total_pages")
@@ -28,11 +26,11 @@ public class MovieResponse {
         this.page = page;
     }
 
-    public List<Movie> getResults() {
+    public List<MovieData> getResults() {
         return results;
     }
 
-    public void setResults(List<Movie> results) {
+    public void setResults(List<MovieData> results) {
         this.results = results;
     }
 
