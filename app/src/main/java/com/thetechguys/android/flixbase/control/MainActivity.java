@@ -99,9 +99,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-
     public void updateData(List<MovieData>movieDatas){
         mRecyclerView.setAdapter(new MovieAdapter(movieDatas));
         mAdapter.notifyDataSetChanged();
