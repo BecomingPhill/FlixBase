@@ -31,11 +31,14 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "2Chaaaaaaaaaiiiins";
+    private final static String API_KEY = "c083761ec20e935b4194ae78e884e62es";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
     private Map<String, String> map = new HashMap<>();
+    private String sort_pop = "popular";
+    private String sort_top = "top_rated";
+
 
 
 
@@ -71,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        map.put("popular", API_KEY);
-        callMovieData(map);
+
+        callMovieData(sort_pop,API_KEY);
 
 
 
@@ -94,15 +97,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_sort_high) {
-            map.clear();
-            map.put("top_rated", API_KEY);
-            callMovieData(map);
+
+            callMovieData(sort_top, API_KEY);
             return true;
         }
         else if(id == R.id.action_sort_pop){
-            map.clear();
-            map.put("popular", API_KEY);
-            callMovieData(map);
+
+            callMovieData(sort_pop, API_KEY);
             return true;
             }
         return super.onOptionsItemSelected(item);
@@ -114,14 +115,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void callMovieData(Map<String,String> map1){
+    public void callMovieData(String string, String key){
         //Create Interface
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
         //Attach call to interface
 
-        Call<MovieResponse> call = apiService.getMoviesData(map1);
+        Call<MovieResponse> call = apiService.getMoviesData(string, API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
