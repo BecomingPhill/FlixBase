@@ -30,7 +30,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "KEYS FOR THE DOORS";
+    private final static String API_KEY = "KEYS FOR THE DOORS!";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
