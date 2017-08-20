@@ -23,11 +23,6 @@ public class MovieDetailActivity extends AppCompatActivity {
     @BindView(R.id.detail_activity_error)TextView mDetailErrorView;
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +31,6 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         Intent startIntent = getIntent();
         Bundle extras = startIntent.getExtras();
-
-
 
 
         if(extras != null){
@@ -55,7 +48,6 @@ public class MovieDetailActivity extends AppCompatActivity {
                 String voteString = Constants.DETAIL_VOTE_MESSAGE + movieVoteAverage;
 
 
-
                 String movieImageUrl = Constants.MOVIE_DB_POSTER_URL + Constants.POSTER_PHONE_SIZE + posterpath;
                 Picasso.with(this).load(movieImageUrl).placeholder(R.color.colorPrimary).into(mDetailImageView);
                 mDetailMovieTitleTextView.setText(movietitle);
@@ -63,17 +55,12 @@ public class MovieDetailActivity extends AppCompatActivity {
                 mMovieOverviewView.setText(movieSynopsis);
                 mMovieRatingView.setText(voteString);
             }
+            //TODO 2 Implement network not present error reporting
             else {
-                String error = "Shit is null";
+                String error = "S*it is null";
                 mDetailErrorView.setText(error);
             }
         }
-
-
-
-
-
-
 
     }
 }

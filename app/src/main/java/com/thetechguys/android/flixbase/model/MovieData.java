@@ -11,6 +11,8 @@ import java.util.List;
 
 public class MovieData  {
 
+    //Get them all seeing that this project carries over to next evaluation.
+
     @SerializedName("poster_path")
     private String posterPath;
     @SerializedName("adult")

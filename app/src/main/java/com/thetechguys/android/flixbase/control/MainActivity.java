@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.thetechguys.android.flixbase.R;
@@ -19,9 +18,7 @@ import com.thetechguys.android.flixbase.utilities.ApiInterface;
 import com.thetechguys.android.flixbase.view.MovieAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,24 +28,15 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "Keys for the things";
+    private final static String API_KEY = "KEYS OPEN DOORS!";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
-    private Map<String, String> map = new HashMap<>();
     private String sort_pop = "popular";
-
-
-
-
 
     RecyclerView.LayoutManager mLayoutManager;
 
     @BindView(R.id.my_recycler_view)RecyclerView mRecyclerView;
-    @BindView(R.id.pb_loading_indicator)ProgressBar mProgressBar;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,19 +53,14 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-
-
+        //Test for key
+        //TODO 1 Implement app start without API key
         if (API_KEY.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Please get an API KEY from themoviedb.org", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "You best get an API KEY from themoviedb.org", Toast.LENGTH_LONG).show();
             return;
         }
 
-
-
-
         callMovieData(sort_pop,API_KEY);
-
-
 
     }
 

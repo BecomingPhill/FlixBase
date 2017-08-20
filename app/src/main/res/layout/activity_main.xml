@@ -13,8 +13,6 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 
-
-
     <GridView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -28,13 +26,5 @@
         tools:context=".MainActivityFragment"
         android:id="@+id/movie_grid">
     </GridView>
-
-    <ProgressBar
-        android:id="@+id/pb_loading_indicator"
-        android:layout_height="42dp"
-        android:layout_width="42dp"
-        android:layout_gravity="top"
-        android:visibility="invisible" />
-
 
 </android.widget.LinearLayout>

@@ -11,6 +11,4 @@ public class Constants {
     public static final String DETAIL_DATE_MESSAGE = "The movie release date is: ";
     public static final String DETAIL_VOTE_MESSAGE = "The average voter score is: ";
 
-
-
 }
