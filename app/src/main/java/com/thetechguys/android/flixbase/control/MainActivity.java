@@ -31,13 +31,13 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String API_KEY = "Damn";
+    private final static String API_KEY = "Keys for the things";
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter ;
     private List<MovieData> MovieData = new ArrayList<>();
     private Map<String, String> map = new HashMap<>();
     private String sort_pop = "popular";
-    private String sort_top = "top_rated";
+
 
 
 
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_sort_high) {
+            String sort_top = "top_rated";
 
             callMovieData(sort_top, API_KEY);
             return true;

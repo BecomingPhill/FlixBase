@@ -24,6 +24,10 @@ public class MovieDetailActivity extends AppCompatActivity {
 
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         Intent startIntent = getIntent();
         Bundle extras = startIntent.getExtras();
+
 
 
 
@@ -44,8 +49,10 @@ public class MovieDetailActivity extends AppCompatActivity {
                 String posterpath = extras.getString("detail_poster_path");
                 String movietitle = extras.getString("detail_movie_title");
                 String movieSynopsis = extras.getString("detail_synopsis");
-                String movieReleaseDate = extras.getString("detail_movie_release_date");
-                String movieVoteAverage = extras.getString("detail_voter_average");
+                String movieReleaseDate = Constants.DETAIL_DATE_MESSAGE + extras.getString("detail_movie_release_date");
+
+                Double movieVoteAverage = extras.getDouble("detail_voter_average");
+                String voteString = Constants.DETAIL_VOTE_MESSAGE + movieVoteAverage;
 
 
 
@@ -54,7 +61,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                 mDetailMovieTitleTextView.setText(movietitle);
                 mReleaseDateView.setText(movieReleaseDate);
                 mMovieOverviewView.setText(movieSynopsis);
-                mMovieRatingView.setText(movieVoteAverage);
+                mMovieRatingView.setText(voteString);
             }
             else {
                 String error = "Shit is null";

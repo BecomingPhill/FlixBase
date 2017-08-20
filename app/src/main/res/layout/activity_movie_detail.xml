@@ -1,34 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.widget.LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.thetechguys.android.flixbase.control.MovieDetailActivity">
-    <ImageView
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        android:id="@+id/detail_activity_poster"/>
+    tools:context="com.thetechguys.android.flixbase.control.MovieDetailActivity"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:id="@+id/linear_text"
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/main_poster"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/detail_activity_poster"/>
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_activity_poster"
+        android:padding="5dp"
+        android:id="@+id/detail_activity_movie_title"
+        android:textSize="32sp"/>
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/detail_activity_movie_title"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="24sp"
+        android:layout_below="@+id/detail_activity_movie_title"
         android:id="@+id/detail_activity_synopsis"/>
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="24sp"
+        android:layout_below="@id/detail_activity_synopsis"
         android:id="@+id/detail_activity_voter_rating"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="24sp"
+        android:layout_below="@id/detail_activity_voter_rating"
         android:id="@+id/detail_activity_release_date"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="5dp"
+
         android:id="@+id/detail_activity_error"/>
 
-</android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+
+    </ScrollView>
+
+</android.widget.LinearLayout>
